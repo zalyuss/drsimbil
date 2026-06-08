@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ✏️ TITLU & DESCRIERE (Google / tab) -->
+<title>DRS Imobil · Case de vânzare în Craiova</title>
+<meta name="description" content="DRS Imobil SRL — case de vânzare în Craiova. Prezentare casă în Zona Selgros, Aleea Ficusului nr. 5. Programează o vizionare.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="DRS Imobil · Case de vânzare în Craiova">
+<meta property="og:description" content="Case de vânzare în Craiova — cu răbdare și cinste. Programează o vizionare.">
+<meta property="og:image" content="poze/living.jpg">
+
+<!-- SEO local: ajută Google să știe că ești din Craiova -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "DRS Imobil SRL",
+  "description": "Case de vânzare în Craiova, cu răbdare și cinste.",
+  "image": "poze/living.jpg",
+  "telephone": "+40764841704",
+  "areaServed": "Craiova",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Aleea Ficusului nr. 5, Zona Selgros",
+    "addressLocality": "Craiova",
+    "addressRegion": "Dolj",
+    "addressCountry": "RO"
+  }
+}
+</script>
+
+<!-- Fonturi: Cormorant Garamond (titluri) + Jost (text) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   🎨 CULORI — schimbă paleta dintr-un singur loc
+   ========================================================= */
+:root{
+  --paper:    #F5EEE2;   /* fundal ivoriu cald */
+  --paper-2:  #ECE2D1;   /* nuanță mai adâncă */
+  --ink:      #2A2018;   /* text închis (espresso) */
+  --ink-soft: #6B5949;   /* text secundar */
+  --espresso: #1F1812;   /* secțiuni întunecate */
+  --espresso-2:#17110C;  /* footer */
+  --cream:    #F5EEE2;   /* text deschis pe închis */
+  --accent:   #B65E3C;   /* teracotă — accent principal */
+  --accent-2: #CB7B54;   /* teracotă deschis */
+  --line:     rgba(42,32,24,.16);
+  --line-lt:  rgba(245,238,226,.20);
+  --nav-h:    72px;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== Reset & bază ===== */
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{ font-family:'Jost',system-ui,sans-serif; font-weight:300; background:var(--paper); color:var(--ink);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; line-height:1.5; }
+img{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--accent); color:var(--paper); }
+:focus-visible{ outline:2px solid var(--accent-2); outline-offset:4px; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding-inline:clamp(1.25rem,5vw,3rem); }
+section[id]{ scroll-margin-top:calc(var(--nav-h) + 10px); }
+.kicker{ font-size:clamp(.66rem,1.4vw,.76rem); letter-spacing:.4em; text-transform:uppercase; color:var(--accent); }
+.sec-label{ font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; color:var(--ink-soft); }
+.sec-label b{ color:var(--accent); font-weight:500; }
+.h2{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(2.2rem,6vw,3.7rem); line-height:1.04; }
+.h2 em{ font-style:italic; color:var(--accent); }
+.lead{ color:var(--ink-soft); font-size:clamp(1rem,2.2vw,1.16rem); max-width:54ch; }
+
+/* Butoane */
+.btn{ display:inline-flex; align-items:center; gap:.6rem; padding:1rem 2rem; border-radius:100px;
+  font-family:'Jost',sans-serif; font-weight:500; font-size:.92rem; letter-spacing:.05em; text-transform:uppercase;
+  background:var(--accent); color:#1B130D; border:1px solid var(--accent);
+  transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease; }
+.btn:hover{ background:var(--accent-2); border-color:var(--accent-2); transform:translateY(-3px); }
+.btn--ghost{ background:transparent; color:var(--cream); border-color:var(--line-lt); }
+.btn--ghost:hover{ background:rgba(245,238,226,.10); border-color:var(--cream); }
+.ic{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+
+/* =========================================================
+   NAV (fix, devine solid la scroll)
+   ========================================================= */
+.nav{ position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:50; display:flex; align-items:center;
+  transition:background .4s ease, box-shadow .4s ease, border-color .4s ease; border-bottom:1px solid transparent; }
+.nav__row{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+.nav__brand{ font-size:1.18rem; letter-spacing:.26em; text-transform:uppercase; font-weight:500; color:var(--cream); transition:color .4s ease; }
+.nav__brand em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.5rem; letter-spacing:0; color:var(--accent-2); }
+.nav__links{ display:flex; align-items:center; gap:clamp(1.2rem,2.5vw,2.2rem); }
+.nav__links a{ font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--cream); position:relative; transition:color .3s ease; }
+.nav__links a:not(.btn)::after{ content:""; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:currentColor; transition:width .3s ease; }
+.nav__links a:not(.btn):hover::after{ width:100%; }
+.nav__links .btn{ padding:.6rem 1.3rem; font-size:.76rem; }
+.nav__toggle{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px; }
+.nav__toggle span{ width:26px; height:2px; background:var(--cream); transition:.3s ease; }
+.nav--solid{ background:rgba(245,238,226,.94); backdrop-filter:blur(10px); border-bottom-color:var(--line); box-shadow:0 6px 30px rgba(0,0,0,.06); }
+.nav--solid .nav__brand,.nav--solid .nav__links a{ color:var(--ink); }
+.nav--solid .nav__toggle span{ background:var(--ink); }
+
+/* =========================================================
+   HERO — vindem case (slideshow lin prin interioare)
+   🖼️ Înlocuiește src-urile.  ✏️ Editează titlul/descrierea.
+   ========================================================= */
+.hero{ position:relative; height:100svh; min-height:600px; overflow:hidden; display:flex; align-items:center; }
+.hero__slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.8s ease; }
+.hero__slide.is-active{ opacity:1; }
+.hero__slide img{ width:100%; height:100%; object-fit:cover; object-position:center; }
+.hero__veil{ position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg, rgba(16,11,7,.86) 0%, rgba(16,11,7,.55) 42%, rgba(16,11,7,.18) 100%); }
+.hero__veil::after{ content:""; position:absolute; inset:0; background-image:var(--grain); background-size:160px; opacity:.06; mix-blend-mode:overlay; }
+.hero__inner{ position:relative; z-index:3; color:var(--cream); max-width:780px; }
+.hero__title{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(2.9rem,9vw,6.2rem); line-height:1; margin:clamp(1rem,3vw,1.5rem) 0; }
+.hero__title em{ font-style:italic; color:var(--accent-2); }
+.hero__tag{ font-size:clamp(1rem,2.3vw,1.22rem); color:rgba(245,238,226,.82); max-width:50ch; line-height:1.6; }
+.hero__cta{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:clamp(1.8rem,4vw,2.6rem); }
+.hero__cue{ position:absolute; left:0; right:0; bottom:clamp(18px,3.5vh,30px); margin:0 auto; width:max-content; z-index:3;
+  display:flex; flex-direction:column; align-items:center; gap:.55rem; color:rgba(245,238,226,.7);
+  font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; }
+.hero__cue span{ width:1px; height:38px; background:linear-gradient(var(--accent-2),transparent); position:relative; overflow:hidden; }
+.hero__cue span::after{ content:""; position:absolute; inset:0 auto auto 0; width:100%; height:45%; background:var(--cream); animation:cue 2.2s cubic-bezier(.7,0,.3,1) infinite; }
+@keyframes cue{ 0%{transform:translateY(-100%);opacity:0} 35%{opacity:1} 100%{transform:translateY(260%);opacity:0} }
+
+/* Slideshow: zoom foarte lent (Ken Burns) pe poza activă */
+.hero__slide img{ transform:scale(1.06); transition:opacity 1.8s ease; }
+.hero__slide.is-active img{ transform:scale(1); transition:opacity 1.8s ease, transform 7s ease-out; }
+
+/* Parallax discret pe stratul de poze din hero (înălțime în plus = fără goluri) */
+.hero__media{ position:absolute; left:0; right:0; top:-12%; height:124%; will-change:transform; }
+
+/* Titlu hero animat cuvânt cu cuvânt */
+.hero__title .word{ display:inline-block; overflow:hidden; vertical-align:top; }
+.hero__title .word > span{ display:inline-block; transform:translateY(110%); }
+.is-ready .hero__title .word > span{ transform:translateY(0);
+  transition:transform .9s cubic-bezier(.2,.8,.2,1); transition-delay:calc(var(--wi,0)*.08s + .05s); }
+
+/* =========================================================
+   SECȚIUNE — comun
+   ========================================================= */
+.section{ padding:clamp(4rem,9vw,7rem) 0; }
+.section__head{ margin-bottom:clamp(2rem,5vw,3.2rem); }
+.section__head .h2{ margin-top:.7rem; max-width:20ch; }
+.section__head .lead{ margin-top:1rem; }
+
+/* =========================================================
+   CASĂ — prezentarea camerelor (fără preț)
+   🖼️ Înlocuiește pozele și textele. Pentru ALTĂ casă, copiază
+      tot blocul <section class="section house"> și schimbă pozele.
+   ========================================================= */
+.house__grid{ display:grid; grid-template-columns:1fr; gap:clamp(1rem,2.4vw,1.6rem); }
+@media (min-width:720px){ .house__grid{ grid-template-columns:1fr 1fr; } }
+.card{ position:relative; overflow:hidden; background:var(--paper-2); border-radius:3px; }
+.card img{ width:100%; aspect-ratio:4/5; object-fit:cover; transition:transform 1s cubic-bezier(.2,.8,.2,1); }
+.card:hover img{ transform:scale(1.045); }
+.card__veil{ position:absolute; inset:0; pointer-events:none; background:linear-gradient(to top, rgba(18,12,8,.74) 0%, rgba(18,12,8,.12) 46%, transparent 66%); }
+.card__cap{ position:absolute; left:0; bottom:0; z-index:2; padding:clamp(1.1rem,3vw,1.7rem); color:var(--cream); }
+.card__num{ display:inline-block; font-size:.72rem; letter-spacing:.36em; color:var(--accent-2); margin-bottom:.55rem; }
+.card__num::before{ content:""; display:inline-block; width:24px; height:1px; background:var(--accent-2); vertical-align:middle; margin-right:.7rem; }
+.card__name{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(1.8rem,5vw,2.4rem); line-height:1.04; }
+.card__desc{ margin-top:.35rem; font-size:clamp(.92rem,2.2vw,1.02rem); color:rgba(245,238,226,.8); }
+
+/* =========================================================
+   DESPRE NOI — scurt și cinstit (3 lucruri reale)
+   ========================================================= */
+.about{ background:var(--paper-2); }
+.about__intro{ max-width:60ch; }
+.about__intro p{ margin-top:1.2rem; color:var(--ink-soft); font-size:clamp(1rem,2.1vw,1.12rem); }
+.values{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.4rem,3vw,2.6rem); margin-top:clamp(2.4rem,5vw,3.4rem); }
+.value{ border-top:1px solid var(--line); padding-top:1.2rem; }
+.value__n{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:var(--accent); }
+.value__t{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:1.6rem; margin:.2rem 0 .55rem; color:var(--ink); }
+.value__d{ color:var(--ink-soft); font-size:.98rem; line-height:1.6; }
+@media (max-width:760px){ .values{ grid-template-columns:1fr; gap:1.6rem; } }
+
+/* =========================================================
+   CONTACT (date reale)
+   ========================================================= */
+.contact{ position:relative; background:var(--espresso); color:var(--cream); text-align:center; overflow:hidden; }
+.contact::before{ content:""; position:absolute; inset:0; background-image:var(--grain); background-size:160px; opacity:.05; mix-blend-mode:overlay; pointer-events:none; }
+.contact::after{ content:""; position:absolute; inset:0; background:radial-gradient(120% 80% at 50% 12%, rgba(182,94,60,.20), transparent 60%); pointer-events:none; }
+.contact__inner{ position:relative; z-index:1; max-width:680px; margin:0 auto; }
+.contact .kicker{ color:var(--accent-2); }
+.contact__title{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(2.4rem,7vw,4.4rem); line-height:1.05; margin-top:1rem; }
+.contact__title em{ font-style:italic; color:var(--accent-2); }
+.contact__subtitle{ margin-top:1rem; color:rgba(245,238,226,.74); font-size:clamp(1rem,2.2vw,1.16rem); }
+.contact__item{ margin-top:1.4rem; display:flex; align-items:center; justify-content:center; gap:.6rem; color:rgba(245,238,226,.85); }
+.contact__item .ic{ color:var(--accent-2); }
+.contact__phone{ margin-top:1.2rem; font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,2.5rem); display:inline-block; transition:color .25s ease; }
+.contact__phone:hover{ color:var(--accent-2); }
+.contact .btn{ margin-top:1.6rem; box-shadow:0 18px 50px rgba(0,0,0,.4); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{ background:var(--espresso-2); color:rgba(245,238,226,.7); padding:clamp(3rem,6vw,4rem) 0 2rem; }
+.footer__grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:clamp(1.6rem,4vw,3rem); }
+.footer__brand{ font-size:1.1rem; letter-spacing:.24em; text-transform:uppercase; color:var(--cream); }
+.footer__brand em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; letter-spacing:0; color:var(--accent-2); }
+.footer p{ margin-top:1rem; font-size:.92rem; line-height:1.7; max-width:38ch; }
+.footer h4{ font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); margin-bottom:1rem; font-weight:500; }
+.footer ul{ list-style:none; display:flex; flex-direction:column; gap:.6rem; font-size:.92rem; }
+.footer ul a:hover{ color:var(--accent-2); }
+.footer__bottom{ margin-top:clamp(2.4rem,5vw,3.2rem); padding-top:1.5rem; border-top:1px solid var(--line-lt);
+  display:flex; flex-wrap:wrap; gap:.6rem 1.5rem; justify-content:space-between; font-size:.78rem; color:rgba(245,238,226,.5); }
+@media (max-width:760px){ .footer__grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .footer__grid{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   MIȘCARE — discretă
+   ========================================================= */
+/* Conținutul din hero apare după ce preloaderul s-a retras (.is-ready) */
+.hero__inner > *, .hero__cue{ opacity:0; }
+.is-ready .hero__inner > *{ animation:rise 1s ease both; }
+.is-ready .hero__inner > *:nth-child(1){ animation-delay:.12s } .is-ready .hero__inner > *:nth-child(2){ animation-delay:.26s }
+.is-ready .hero__inner > *:nth-child(3){ animation-delay:.4s } .is-ready .hero__inner > *:nth-child(4){ animation-delay:.54s }
+.is-ready .hero__cue{ animation:rise 1s ease both .8s; }
+@keyframes rise{ from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:none} }
+[data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .85s ease, transform .85s cubic-bezier(.2,.8,.2,1); transition-delay:calc(var(--i,0)*.08s); }
+[data-reveal].in{ opacity:1; transform:none; }
+
+/* Garanții animate în „Despre" — linia teracotă se trage + text în cascadă */
+.value{ position:relative; }
+.value::before{ content:""; position:absolute; top:-1px; left:0; height:2px; width:0; background:var(--accent); transition:width .9s cubic-bezier(.2,.8,.2,1); }
+.value.in::before{ width:46px; }
+
+/* Fără JS: arată tot (preloaderul e activat doar când există .js) */
+html:not(.js) .hero__inner > *, html:not(.js) .hero__cue{ opacity:1; }
+html:not(.js) .hero__title .word > span{ transform:none; }
+html:not(.js) #preloader{ display:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  [data-reveal]{ opacity:1; transform:none; }
+  .hero__inner > *, .hero__cue{ opacity:1; }
+  .hero__title .word > span{ transform:none; }
+  .hero__slide img{ transform:none; }
+  .value::before{ width:46px; }
+  #preloader{ display:none !important; }
+}
+
+/* =========================================================
+   PRELOADER — cortină de deschidere
+   ========================================================= */
+#preloader{ position:fixed; inset:0; z-index:999; background:var(--espresso);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem;
+  transition:transform 1s cubic-bezier(.76,0,.24,1); }
+#preloader.is-done{ transform:translateY(-100%); }
+.preloader__brand{ font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,7vw,3.2rem); color:var(--cream);
+  letter-spacing:.04em; opacity:0; transform:translateY(14px); animation:plFade .9s ease forwards .15s; }
+.preloader__brand em{ font-style:italic; color:var(--accent-2); }
+.preloader__line{ width:0; height:1px; background:var(--accent); animation:plLine 1s cubic-bezier(.2,.8,.2,1) forwards .5s; }
+@keyframes plFade{ to{ opacity:1; transform:none; } }
+@keyframes plLine{ to{ width:120px; } }
+
+/* =========================================================
+   LIGHTBOX — galerie poze mari
+   ========================================================= */
+.card{ cursor:zoom-in; }
+.lightbox{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center;
+  background:rgba(15,10,6,.92); opacity:0; visibility:hidden; transition:opacity .4s ease, visibility .4s ease; padding:clamp(1rem,4vw,3rem); }
+.lightbox.is-open{ opacity:1; visibility:visible; }
+.lightbox::before{ content:""; position:absolute; inset:0; background-image:var(--grain); background-size:160px; opacity:.05; mix-blend-mode:overlay; pointer-events:none; }
+.lightbox__fig{ position:relative; max-width:min(1000px,92vw); text-align:center; transform:scale(.96); transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+.lightbox.is-open .lightbox__fig{ transform:scale(1); }
+.lightbox__img{ max-width:100%; max-height:78vh; object-fit:contain; border-radius:3px; box-shadow:0 30px 90px rgba(0,0,0,.5); margin:0 auto; }
+.lightbox__cap{ margin-top:1rem; font-family:'Cormorant Garamond',serif; font-size:clamp(1.3rem,4vw,1.8rem); color:var(--cream); }
+.lightbox__cap span{ display:block; font-family:'Jost',sans-serif; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; color:var(--accent-2); margin-bottom:.3rem; }
+.lightbox__btn{ position:absolute; top:50%; transform:translateY(-50%); width:54px; height:54px; border-radius:50%;
+  background:rgba(245,238,226,.10); border:1px solid var(--line-lt); color:var(--cream); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:background .25s ease, transform .25s ease; z-index:2; }
+.lightbox__btn:hover{ background:var(--accent); color:#1B130D; }
+.lightbox__btn.prev{ left:clamp(.5rem,2vw,1.5rem); } .lightbox__btn.next{ right:clamp(.5rem,2vw,1.5rem); }
+.lightbox__btn.prev:hover{ transform:translateY(-50%) translateX(-3px); } .lightbox__btn.next:hover{ transform:translateY(-50%) translateX(3px); }
+.lightbox__close{ position:absolute; top:clamp(1rem,3vw,2rem); right:clamp(1rem,3vw,2rem); width:48px; height:48px; border-radius:50%;
+  background:rgba(245,238,226,.10); border:1px solid var(--line-lt); color:var(--cream); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:background .25s ease; z-index:2; }
+.lightbox__close:hover{ background:var(--accent); color:#1B130D; }
+.lightbox .ic{ width:22px; height:22px; }
+@media (max-width:560px){ .lightbox__btn{ width:44px; height:44px; } .lightbox__img{ max-height:64vh; } }
+
+/* ===== Nav mobil ===== */
+@media (max-width:760px){
+  .nav__links{ position:fixed; inset:var(--nav-h) 0 auto 0; flex-direction:column; align-items:flex-start; gap:0;
+    background:rgba(245,238,226,.98); backdrop-filter:blur(10px); padding:1rem clamp(1.25rem,5vw,3rem) 1.6rem;
+    border-bottom:1px solid var(--line); transform:translateY(-130%); transition:transform .4s cubic-bezier(.4,0,.2,1); }
+  .nav__links a{ color:var(--ink) !important; width:100%; padding:.85rem 0; border-bottom:1px solid var(--line); font-size:.9rem; }
+  .nav__links a:not(.btn)::after{ display:none; }
+  .nav__links .btn{ margin-top:1rem; width:100%; justify-content:center; padding:.9rem; }
+  .nav.is-open .nav__links{ transform:translateY(0); }
+  .nav__toggle{ display:flex; }
+  .nav.is-open .nav__toggle span{ background:var(--ink); }
+  .nav.is-open .nav__toggle span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav.is-open .nav__toggle span:nth-child(2){ opacity:0; }
+  .nav.is-open .nav__toggle span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================ PRELOADER ============================================================ -->
+<div id="preloader" aria-hidden="true">
+  <div class="preloader__brand"><em>DRS</em> Imobil</div>
+  <div class="preloader__line"></div>
+</div>
+
+<!-- iconițe -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="ic-prev" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="ic-next" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+</svg>
+
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav__row">
+    <a class="nav__brand" href="#top"><em>DRS</em> Imobil</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Meniu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="navLinks">
+      <a href="#house">Casa</a>
+      <a href="#about">Despre</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ HERO ============================================================ -->
+<header class="hero" id="top">
+  <div class="hero__media">
+    <div class="hero__slide is-active"><img src="poze/living.jpg" alt="Interior luminos" fetchpriority="high"></div>
+    <div class="hero__slide"><img src="poze/bucatarie.jpg" alt="Bucătărie modernă"></div>
+    <div class="hero__slide"><img src="poze/dormitor1.jpg" alt="Dormitor"></div>
+    <div class="hero__slide"><img src="poze/baie1.jpg" alt="Baie"></div>
+  </div>
+  <div class="hero__veil"></div>
+
+  <div class="wrap hero__inner">
+    <p class="kicker">Case de vânzare · Craiova</p>
+    <h1 class="hero__title"><span class="word" style="--wi:0"><span>Găsim</span></span> <span class="word" style="--wi:1"><span>casa</span></span> <span class="word" style="--wi:2"><span>care</span></span> <em><span class="word" style="--wi:3"><span>ți</span></span> <span class="word" style="--wi:4"><span>se</span></span> <span class="word" style="--wi:5"><span>potrivește</span></span></em></h1>
+    <p class="hero__tag">Vindem case — atât. O facem cu răbdare și cinste, alături de tine de la prima vizionare până la cheile în mână.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#house">Vezi casa</a>
+      <a class="btn btn--ghost" href="#contact">Programează o vizionare</a>
+    </div>
+  </div>
+
+  <a class="hero__cue" href="#house" aria-label="Vezi casa">Descoperă<span></span></a>
+</header>
+
+<!-- ============================================================
+     CASĂ (prezentare, fără preț)
+     ============================================================ -->
+<section class="section house" id="house">
+  <div class="wrap">
+    <div class="section__head" data-reveal>
+      <p class="sec-label"><b>(01)</b> &nbsp; Casă de vânzare · Craiova, Zona Selgros</p>
+      <h2 class="h2">O casă gândită <em>până la detaliu</em></h2>
+      <p class="lead">Finisaje calde, lumină generoasă și spații care respiră. Plimbă-te prin fiecare cameră — și hai la o vizionare când ești gata.</p>
+    </div>
+
+    <div class="house__grid">
+      <figure class="card" data-reveal style="--i:0">
+        <img src="poze/living.jpg" alt="Living luminos cu parchet în spic" loading="lazy">
+        <div class="card__veil"></div>
+        <figcaption class="card__cap"><span class="card__num">01</span><h3 class="card__name">Living</h3><p class="card__desc">Open space luminos, cu parchet în spic.</p></figcaption>
+      </figure>
+      <figure class="card" data-reveal style="--i:1">
+        <img src="poze/bucatarie.jpg" alt="Bucătărie modernă, complet utilată" loading="lazy">
+        <div class="card__veil"></div>
+        <figcaption class="card__cap"><span class="card__num">02</span><h3 class="card__name">Bucătărie</h3><p class="card__desc">Modernă, complet utilată, cu accente de lemn.</p></figcaption>
+      </figure>
+      <figure class="card" data-reveal style="--i:2">
+        <img src="poze/dormitor1.jpg" alt="Dormitor cu dressing încastrat" loading="lazy">
+        <div class="card__veil"></div>
+        <figcaption class="card__cap"><span class="card__num">03</span><h3 class="card__name">Dormitor</h3><p class="card__desc">Cald și liniștit, cu dressing încastrat.</p></figcaption>
+      </figure>
+      <figure class="card" data-reveal style="--i:3">
+        <img src="poze/baie1.jpg" alt="Baie cu marmură, lemn și duș walk-in" loading="lazy">
+        <div class="card__veil"></div>
+        <figcaption class="card__cap"><span class="card__num">04</span><h3 class="card__name">Baie</h3><p class="card__desc">Marmură, lemn și duș walk-in.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DESPRE NOI — scurt și cinstit (✏️ editează textul)
+     ============================================================ -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="section__head about__intro" data-reveal>
+      <p class="sec-label"><b>(02)</b> &nbsp; Despre noi</p>
+      <h2 class="h2">Facem un singur lucru, <em>și-l facem bine</em></h2>
+      <p>DRS Imobil vinde case — atât. Fără promisiuni goale și fără grabă: îți arătăm casa cinstit, cu bune și mai puțin bune, și te ducem în siguranță până la semnătură.</p>
+    </div>
+
+    <div class="values">
+      <div class="value" data-reveal style="--i:0">
+        <div class="value__n">01</div>
+        <h3 class="value__t">Doar case</h3>
+        <p class="value__d">Ne ocupăm exclusiv de vânzarea caselor. Le cunoaștem bine și ți le prezentăm exact cum sunt.</p>
+      </div>
+      <div class="value" data-reveal style="--i:1">
+        <div class="value__n">02</div>
+        <h3 class="value__t">Vânzare în siguranță</h3>
+        <p class="value__d">Te ajutăm cu actele și negocierea, ca totul să fie clar, corect și fără surprize.</p>
+      </div>
+      <div class="value" data-reveal style="--i:2">
+        <div class="value__n">03</div>
+        <h3 class="value__t">Alături de tine</h3>
+        <p class="value__d">De la prima vizionare până la cheile în mână, suntem la un telefon distanță.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT (date reale)
+     ☎️ Telefonul apare în 2 locuri (aici + footer) — schimbă în tel:+40764841704
+     ✏️ Adresă reală mai jos.
+     ============================================================ -->
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner" data-reveal>
+    <p class="kicker">Contact</p>
+    <h2 class="contact__title">Hai să vorbim despre <em>casa ta</em></h2>
+    <p class="contact__subtitle">Programează o vizionare sau întreabă-ne orice — îți răspundem cu drag.</p>
+
+    <div class="contact__item"><svg class="ic"><use href="#ic-pin"/></svg> Craiova · Zona Selgros, Aleea Ficusului nr. 5</div>
+    <div><a class="contact__phone" href="tel:+40764841704">0764 841 704</a></div>
+
+    <a class="btn" href="tel:+40764841704"><svg class="ic"><use href="#ic-phone"/></svg> Programează vizionare</a>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand"><em>DRS</em> Imobil</div>
+        <p>Case de vânzare în Craiova, cu răbdare și cinste. Te însoțim de la prima vizionare până la cheile în mână.</p>
+      </div>
+      <div>
+        <h4>Navigare</h4>
+        <ul>
+          <li><a href="#house">Casa</a></li>
+          <li><a href="#about">Despre noi</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+40764841704">0764 841 704</a></li>
+          <li>Craiova · Zona Selgros, Aleea Ficusului nr. 5</li>
+          <!-- ✏️ Adaugă aici emailul real, dacă vrei: <li><a href="mailto:...">...</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 DRS Imobil SRL · Toate drepturile rezervate</span>
+      <span>Site de prezentare</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ LIGHTBOX ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie foto">
+  <button class="lightbox__close" id="lbClose" aria-label="Închide"><svg class="ic"><use href="#ic-close"/></svg></button>
+  <button class="lightbox__btn prev" id="lbPrev" aria-label="Poza anterioară"><svg class="ic"><use href="#ic-prev"/></svg></button>
+  <figure class="lightbox__fig">
+    <img class="lightbox__img" id="lbImg" src="" alt="">
+    <figcaption class="lightbox__cap" id="lbCap"></figcaption>
+  </figure>
+  <button class="lightbox__btn next" id="lbNext" aria-label="Poza următoare"><svg class="ic"><use href="#ic-next"/></svg></button>
+</div>
+
+<script>
+var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Preloader: retragem cortina, apoi pornim animațiile din hero (.is-ready) */
+(function(){
+  var pre = document.getElementById('preloader');
+  function reveal(){ document.body.classList.add('is-ready'); }
+  if(REDUCE){ if(pre) pre.remove(); reveal(); return; }
+  function done(){
+    if(!pre || pre.classList.contains('is-done')) { reveal(); return; }
+    pre.classList.add('is-done');
+    reveal();
+    setTimeout(function(){ if(pre) pre.remove(); }, 1100);
+  }
+  /* după ce s-a încărcat pagina, ținem cortina puțin apoi o retragem */
+  window.addEventListener('load', function(){ setTimeout(done, 700); });
+  /* plasă de siguranță: chiar dacă „load" nu se declanșează, nu blocăm ecranul */
+  setTimeout(done, 4000);
+})();
+
+/* Parallax discret pe pozele din hero */
+(function(){
+  if(REDUCE) return;
+  var media = document.querySelector('.hero__media'), hero = document.querySelector('.hero');
+  if(!media || !hero) return;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var y = window.scrollY;
+    if(y > hero.offsetHeight) return;
+    media.style.transform = 'translateY(' + (y * 0.10) + 'px)';
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, { passive:true });
+  update();
+})();
+
+/* Slideshow lin în hero */
+(function(){
+  var slides = document.querySelectorAll('.hero__slide');
+  if(slides.length < 2) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var i = 0;
+  setInterval(function(){
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  }, 5500); /* ⏱️ durata fiecărei poze (ms) */
+})();
+
+/* Nav: solid după hero + meniu mobil */
+(function(){
+  var nav = document.getElementById('nav'), hero = document.querySelector('.hero');
+  var toggle = document.getElementById('navToggle'), links = document.getElementById('navLinks');
+  function onScroll(){
+    var t = (hero ? hero.offsetHeight : window.innerHeight) - 90;
+    nav.classList.toggle('nav--solid', window.scrollY > t || nav.classList.contains('is-open'));
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll); onScroll();
+  toggle.addEventListener('click', function(){ var o = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', o); onScroll(); });
+  links.addEventListener('click', function(e){ if(e.target.closest('a')){ nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', false); onScroll(); } });
+})();
+
+/* Apariție lină la scroll */
+(function(){
+  var els = document.querySelectorAll('[data-reveal]');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); }); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.14, rootMargin:'0px 0px -6% 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* Galerie cu lightbox */
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.house__grid .card'));
+  if(!cards.length) return;
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  var btnClose = document.getElementById('lbClose'), btnPrev = document.getElementById('lbPrev'), btnNext = document.getElementById('lbNext');
+  var current = 0, lastFocus = null;
+
+  /* construim datele galeriei din cardurile existente */
+  var items = cards.map(function(card){
+    var img = card.querySelector('img');
+    var name = card.querySelector('.card__name'), num = card.querySelector('.card__num');
+    return { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '',
+             name: name ? name.textContent : '', num: num ? num.textContent : '' };
+  });
+
+  function show(i){
+    current = (i + items.length) % items.length;
+    var it = items[current];
+    lbImg.src = it.src; lbImg.alt = it.alt;
+    lbCap.innerHTML = '<span>' + it.num + '</span>' + it.name;
+  }
+  function open(i){
+    lastFocus = document.activeElement;
+    show(i);
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function close(){
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  }
+
+  cards.forEach(function(card, i){
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Mărește poza: ' + items[i].name);
+    card.addEventListener('click', function(){ open(i); });
+    card.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(i); } });
+  });
+
+  btnPrev.addEventListener('click', function(){ show(current - 1); });
+  btnNext.addEventListener('click', function(){ show(current + 1); });
+  btnClose.addEventListener('click', close);
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('is-open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(current - 1);
+    else if(e.key === 'ArrowRight') show(current + 1);
+  });
+
+  /* swipe pe mobil */
+  var x0 = null;
+  lb.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive:true });
+  lb.addEventListener('touchend', function(e){
+    if(x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx) > 50){ show(current + (dx < 0 ? 1 : -1)); }
+    x0 = null;
+  }, { passive:true });
+})();
+
+/* Butoane magnetice — doar pe dispozitive cu mouse */
+(function(){
+  if(REDUCE || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var btns = document.querySelectorAll('.btn');
+  btns.forEach(function(btn){
+    btn.addEventListener('mousemove', function(e){
+      var r = btn.getBoundingClientRect();
+      var mx = e.clientX - r.left - r.width / 2;
+      var my = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + (mx * 0.25) + 'px,' + (my * 0.35) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+  });
+})();
+</script>
+
+</body>
+</html>
