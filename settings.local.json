@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process \"C:\\\\Users\\\\Luigi\\\\Desktop\\\\darius site\\\\index.html\"; Write-Output \"Deschis in browserul implicit.\")",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\Luigi\\\\Desktop\\\\darius site\\\\index.html\"; Write-Output \"Redeschis.\")",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\Luigi\\\\Desktop\\\\darius site\\\\index.html\")"
+    ]
+  }
+}
